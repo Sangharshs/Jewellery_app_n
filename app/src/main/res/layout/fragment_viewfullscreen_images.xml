@@ -9,10 +9,11 @@
     tools:context=".Fragments.ViewfullscreenImagesFragment">
 
 
-    <ImageView
-        android:src="@drawable/ring"
-        android:id="@+id/imageView"
+    <com.ortiz.touchview.TouchImageView
+        android:id="@+id/myZoomageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/ringimg"
+        />
 
 </LinearLayout>

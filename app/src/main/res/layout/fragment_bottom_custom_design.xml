@@ -208,6 +208,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/applyCardView"
             android:layout_margin="10dp"
             app:cardElevation="5dp"
             android:elevation="5dp"

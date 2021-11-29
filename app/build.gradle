@@ -61,6 +61,7 @@ dependencies {
 
     implementation 'org.imaginativeworld.whynotimagecarousel:whynotimagecarousel:2.0.5'
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0'
+    implementation 'com.github.MikeOrtiz:TouchImageView:1.4.1'
 
 
 }

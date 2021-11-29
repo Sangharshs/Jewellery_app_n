@@ -14,18 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.jewelleryapp.R;
 import com.example.jewelleryapp.databinding.ProductSpecificationModelItemBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomDesignAdapter extends RecyclerView.Adapter<CustomDesignAdapter.viewHolder>{
     private List<CustomD_Model> customD_modelList;
     private List<P_SpecificationModel> p_specificationModels;
     private int id;
+    private CustomDesItemsAdapter.ItemClickListener itemClickListener;
 
 
-    public CustomDesignAdapter(List<CustomD_Model> customD_modelList, List<P_SpecificationModel> p_specificationModels,int id) {
+    public CustomDesignAdapter(List<CustomD_Model> customD_modelList, List<P_SpecificationModel> p_specificationModels,int id,CustomDesItemsAdapter.ItemClickListener itemClickListener) {
         this.customD_modelList = customD_modelList;
         this.p_specificationModels = p_specificationModels;
         this.id = id;
+        this.itemClickListener = itemClickListener;
     }
 
     @NonNull
@@ -38,19 +41,26 @@ public class CustomDesignAdapter extends RecyclerView.Adapter<CustomDesignAdapte
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, @SuppressLint("RecyclerView") int position) {
 
+        int idsList = customD_modelList.get(position).getId();
+
         holder.textView.setText(customD_modelList.get(position).getDesignName());
-        CustomDesItemsAdapter customDesItemsAdapter = new CustomDesItemsAdapter(p_specificationModels,id);
+
+        p_specificationModels = new ArrayList<>();
+
+        p_specificationModels.add(new P_SpecificationModel("Blue",1));
+        p_specificationModels.add(new P_SpecificationModel("Red",2));
+        p_specificationModels.add(new P_SpecificationModel("Yellow",3));
+
+        CustomDesItemsAdapter customDesItemsAdapter = new CustomDesItemsAdapter(p_specificationModels,id,idsList,itemClickListener);
         holder.productSpecificationDesignRecycler.setAdapter(customDesItemsAdapter);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Toast.makeText(view.getContext(), String.valueOf(customD_modelList.get(position).getId()), Toast.LENGTH_SHORT).show();
-
-
             }
         });
+
     }
 
     @Override

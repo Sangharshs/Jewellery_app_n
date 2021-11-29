@@ -25,6 +25,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiInterface {
 
@@ -52,13 +53,13 @@ public interface ApiInterface {
     Call<ArrayList<SliderItem>> getAllSliders();
 
     @GET("p_product_images.php/{id}")
-    Call<ArrayList<HorizontalProductImage>> getProductImages(@Path("id") int id);
+    Call<ArrayList<HorizontalProductImage>> getProductImages(@Query("id") int id);
 
     @GET("p_details_a.php/{id}")
-    Call<ArrayList<P_Details_A>> getProductDetailsA(@Path("id") int id);
+    Call<ArrayList<P_Details_A>> getProductDetailsA(@Query("id") int id);
 
     @GET("p_details_b.php/{id}")
-    Call<ArrayList<P_Details_B>> getProductDetailsB(@Path("id") int id);
+    Call<ArrayList<P_Details_B>> getProductDetailsB(@Query("id") int id);
 
 
 }
